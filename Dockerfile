@@ -1,5 +1,6 @@
 FROM centos:7
 
+# change here the versions
 ENV RUBY_VERSION 2.0.0.598
 ENV GOLANG_VERSION 1.5.2
 
