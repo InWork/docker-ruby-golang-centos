@@ -26,7 +26,7 @@ RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 ENV PATH $PATH:/usr/local/go/bin
 
 # prepare go-env
-RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" "$GOPATH/pkg" && chmod -R 777 "$GOPATH"
 
 # install godep
 RUN go get github.com/tools/godep
