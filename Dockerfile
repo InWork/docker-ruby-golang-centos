@@ -11,7 +11,7 @@ ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.
 ENV GOLANG_DOWNLOAD_SHA1 cae87ed095e8d94a81871281d35da7829bd1234e
 
 # install general pre-requisites
-RUN yum install -y tar git sqlite make gcc ruby-devel zlib-devel
+RUN yum install -y tar git sqlite make gcc gcc-c++ ruby-devel zlib-devel
 
 # INSTALL RUBY
 RUN yum install -y ruby-$RUBY_VERSION
