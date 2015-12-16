@@ -24,7 +24,7 @@ RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
   && tar -C /usr/local -xzf golang.tar.gz \
   && rm golang.tar.gz
 
-ENV PATH $PATH:/usr/local/go/bin
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 # prepare go-env
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" "$GOPATH/pkg" && chmod -R 777 "$GOPATH"
