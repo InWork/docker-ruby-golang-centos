@@ -12,7 +12,8 @@ ENV GOLANG_DOWNLOAD_SHA256 e40c36ae71756198478624ed1bb4ce17597b3c19d243f3f0899bb
 
 # install general pre-requisites
 RUN yum install -y epel-release
-RUN yum install -y tar git sqlite make gcc gcc-c++ ruby-devel zlib-devel postgresql-devel cmake openssh-client libxml2-devel libxslt-devel nodejs npm
+RUN yum install -y tar git sqlite make gcc gcc-c++ ruby-devel zlib-devel postgresql-devel \
+  && cmake openssh-client libxml2-devel libxslt-devel nodejs npm
 
 # INSTALL RUBY
 RUN yum install -y ruby-$RUBY_VERSION
@@ -31,3 +32,9 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" "$GOPATH/pkg" && chmod -R 777 "$GOPATH"
 
 # install godep
 RUN go get github.com/tools/godep
+
+# install glide
+RUN \
+  wget https://github.com/Masterminds/glide/releases/download/0.10.2/glide-0.10.2-linux-amd64.tar.gz && \
+  tar xvf glide-0.10.2-linux-amd64.tar.gz && \
+  mv linux-amd64/glide /usr/bin/
