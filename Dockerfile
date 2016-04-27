@@ -13,7 +13,7 @@ ENV GOLANG_DOWNLOAD_SHA256 e40c36ae71756198478624ed1bb4ce17597b3c19d243f3f0899bb
 # install general pre-requisites
 RUN yum install -y epel-release
 RUN yum install -y tar git sqlite make gcc gcc-c++ ruby-devel zlib-devel postgresql-devel \
-  && cmake openssh-client libxml2-devel libxslt-devel nodejs npm
+  cmake openssh-client libxml2-devel libxslt-devel nodejs npm
 
 # INSTALL RUBY
 RUN yum install -y ruby-$RUBY_VERSION
