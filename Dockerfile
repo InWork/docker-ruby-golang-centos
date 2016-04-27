@@ -35,6 +35,6 @@ RUN go get github.com/tools/godep
 
 # install glide
 RUN \
-  wget https://github.com/Masterminds/glide/releases/download/0.10.2/glide-0.10.2-linux-amd64.tar.gz && \
+  curl -O https://github.com/Masterminds/glide/releases/download/0.10.2/glide-0.10.2-linux-amd64.tar.gz && \
   tar xvf glide-0.10.2-linux-amd64.tar.gz && \
   mv linux-amd64/glide /usr/bin/
