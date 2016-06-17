@@ -1,5 +1,6 @@
 # docker-ruby-golang-centos
 
+- [`1.6.2-1` with rpmbuild (Dockerfile*)](https://github.com/InWork/docker-ruby-golang-centos/blob/1ef4b301860b22daf14f68fe130f18871ce3c8a5/Dockerfile)
 - [`1.6.2` (Dockerfile*)](https://github.com/InWork/docker-ruby-golang-centos/blob/63d08f2233349efe47bd391e50a8f5fe1b575b96/Dockerfile)
 
 Docker recipe containing Ruby, Golang (+ godep) on Centos, it includes even some other common libraries, like:
