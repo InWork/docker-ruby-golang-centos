@@ -43,4 +43,4 @@ RUN \
   tar xvf glide-inux-amd64.tar.gz && \
   mv linux-amd64/glide /usr/bin/ && \
   rm glide-inux-amd64.tar.gz && \
-  rm linux-amd64
+  rm -Rf linux-amd64
