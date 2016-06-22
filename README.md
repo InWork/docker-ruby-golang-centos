@@ -1,6 +1,6 @@
 # docker-ruby-golang-centos
 
-- [`1.6.2-2` fix glide (Dockerfile*)](https://github.com/InWork/docker-ruby-golang-centos/blob/62d8b916c999f25323b2c2a81dda3645c4e6670b/Dockerfile)
+- [`1.6.2-2` fix glide (Dockerfile*)](https://github.com/InWork/docker-ruby-golang-centos/blob/b78ed44827d2b787c2dcf1411b062b54a60bfeae/Dockerfile)
 - [`1.6.2-1` with rpmbuild (Dockerfile*)](https://github.com/InWork/docker-ruby-golang-centos/blob/27993e1289c409bf1338eddd8c5e7b018fb06b95/Dockerfile)
 - [`1.6.2` (Dockerfile*)](https://github.com/InWork/docker-ruby-golang-centos/blob/63d08f2233349efe47bd391e50a8f5fe1b575b96/Dockerfile)
 
