@@ -40,6 +40,8 @@ RUN rbenv global $RUBY_VERSION
 
 RUN gem install bundler
 
+RUN rbenv rehash
+
 # install go
 RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
   && echo "$GOLANG_DOWNLOAD_SHA256  golang.tar.gz" | sha256sum -c - \
