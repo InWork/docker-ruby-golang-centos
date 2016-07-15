@@ -3,6 +3,7 @@ FROM centos:7
 MAINTAINER "http://www.inwork.ch"
 
 # change here the versions
+# ruby version can be found here https://github.com/rbenv/ruby-build/tree/master/share/ruby-build
 ENV RUBY_VERSION 2.0.0-p648
 ENV GOLANG_VERSION 1.6.2
 ENV GLIDE_VERSION 0.11.0
