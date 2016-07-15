@@ -1,5 +1,7 @@
 FROM centos:7
 
+MAINTAINER "http://www.inwork.ch"
+
 # change here the versions
 ENV RUBY_VERSION 2.0.0
 ENV GOLANG_VERSION 1.6.2
