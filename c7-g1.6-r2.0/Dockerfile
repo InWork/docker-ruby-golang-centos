@@ -23,13 +23,17 @@ RUN yum install -y tar git git-core sqlite sqlite-devel make gcc gcc-c++ patch r
 
 # install rbenv
 RUN cd
-RUN git clone git://github.com/sstephenson/rbenv.git .rbenv
-RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
-RUN echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-RUN exec $SHELL
+RUN git clone git://github.com/sstephenson/rbenv.git /root/.rbenv
+RUN echo 'export PATH="/root/.rbenv/bin:$PATH"' >> /root/.bash_profile
+RUN /root/.rbenv/plugins/ruby-build/install.sh
 
-RUN git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-RUN echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
+RUN echo 'eval "$(rbenv init -)"' >> /root/.bash_profile
+RUN echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
+
+RUN git clone git://github.com/sstephenson/ruby-build.git /root/.rbenv/plugins/ruby-build
+RUN echo 'export PATH="/root/.rbenv/plugins/ruby-build/bin:$PATH"' >> /root/.bash_profile
+
+ENV PATH /root/.rbenv/bin:$PATH
 RUN exec $SHELL
 
 # install ruby
