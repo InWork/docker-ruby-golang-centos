@@ -1,26 +1,42 @@
 FROM centos:7
 
 # change here the versions
-ENV RUBY_VERSION 2.0.0.598
+ENV RUBY_VERSION 2.0.0
 ENV GOLANG_VERSION 1.6.2
+ENV GLIDE_VERSION 0.11.0
 
 ENV GOPATH /go
 
 # find URL and SHA1 on https://golang.org/dl/
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
 ENV GOLANG_DOWNLOAD_SHA256 e40c36ae71756198478624ed1bb4ce17597b3c19d243f3f0899bb5740d56212a
-ENV GLIDE_DOWNLOAD_URL https://github.com/Masterminds/glide/releases/download/0.10.2/glide-0.10.2-linux-amd64.tar.gz
+
+ENV GLIDE_DOWNLOAD_URL https://github.com/Masterminds/glide/releases/download/v$GLIDE_VERSION/glide-v$GLIDE_VERSION-linux-amd64.tar.gz
 
 # install general pre-requisites
 RUN yum install -y epel-release
-RUN yum install -y tar git sqlite make gcc gcc-c++ ruby-devel zlib-devel postgresql-devel \
-  cmake openssh-client libxml2-devel libxslt-devel nodejs npm curl rpm-build
+RUN yum install -y tar git git-core sqlite sqlite-devel make gcc gcc-c++ patch ruby-devel zlib zlib-devel postgresql-devel \
+  cmake openssh-client libxml2-devel libxslt-devel nodejs npm curl rpm-build readline readline-devel \
+  libyaml-devel libffi-devel openssl-devel bzip2 autoconf automake libtool bison
 
-# INSTALL RUBY
-RUN yum install -y ruby-$RUBY_VERSION
+# install rbenv
+RUN cd
+RUN git clone git://github.com/sstephenson/rbenv.git .rbenv
+RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+RUN echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+RUN exec $SHELL
+
+RUN git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+RUN echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
+RUN exec $SHELL
+
+# install ruby
+rbenv install -v $RUBY_VERSION
+rbenv global $RUBY_VERSION
+
 RUN gem install bundler
 
-# INSTALL GO
+# install go
 RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
   && echo "$GOLANG_DOWNLOAD_SHA256  golang.tar.gz" | sha256sum -c - \
   && tar -C /usr/local -xzf golang.tar.gz \

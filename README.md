@@ -1,10 +1,6 @@
 # docker-ruby-golang-centos
 
-- [`1.6.2-2` fix glide (Dockerfile*)](https://github.com/InWork/docker-ruby-golang-centos/blob/babc3eb6d59f18e2372dca590a7e59243a1da96a/Dockerfile)
-- [`1.6.2-1` with rpmbuild (Dockerfile*)](https://github.com/InWork/docker-ruby-golang-centos/blob/27993e1289c409bf1338eddd8c5e7b018fb06b95/Dockerfile)
-- [`1.6.2` (Dockerfile*)](https://github.com/InWork/docker-ruby-golang-centos/blob/63d08f2233349efe47bd391e50a8f5fe1b575b96/Dockerfile)
-
-Docker recipe containing Ruby, Golang (+ godep) on Centos, it includes even some other common libraries, like:
+Docker recipe containing Ruby (with rbenv), Golang (+ godep and glide) on Centos, it includes even some other common libraries, like:
 
 - libraries useful for compile common gems
 - nodejs package manager
@@ -15,15 +11,20 @@ Docker recipe containing Ruby, Golang (+ godep) on Centos, it includes even some
 - rpbm-build
 - ...
 
-The Ruby, Golang and Centos version are easy to change if needed.
-
 See our [Docker Hub repo](https://hub.docker.com/r/inwork/docker-ruby-golang-centos/)
-
 
 # How to use this image
 
+The version are organized in this way:
+
+- c: Centos version
+- g: Golang version
+- r: Ruby version
+
+So the combination ```c7-g1.6-r2.0``` means: Centos 7 with Golang 1.6.x and Ruby 2.0.x
+
 ````
-FROM inwork/docker-ruby-golang-centos:1.6.2
+FROM inwork/docker-ruby-golang-centos:c7-g1.6-r2.0
 ````
 
 # License
