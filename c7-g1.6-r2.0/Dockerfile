@@ -31,8 +31,8 @@ RUN echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_pr
 RUN exec $SHELL
 
 # install ruby
-rbenv install -v $RUBY_VERSION
-rbenv global $RUBY_VERSION
+RUN rbenv install -v $RUBY_VERSION
+RUN rbenv global $RUBY_VERSION
 
 RUN gem install bundler
 
