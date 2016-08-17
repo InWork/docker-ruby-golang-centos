@@ -22,6 +22,9 @@ RUN yum install -y tar git git-core sqlite sqlite-devel make gcc gcc-c++ patch r
   cmake openssh-client libxml2-devel libxslt-devel nodejs npm curl rpm-build readline readline-devel \
   libyaml-devel libffi-devel openssl-devel bzip2 autoconf automake libtool bison wget rubygems
 
+# resolve issue http://stackoverflow.com/q/13841200/1720344
+RUN gem install json_pure
+
 # update rubygems
 RUN gem update --system
 
