@@ -9,6 +9,7 @@ Docker recipe containing Ruby (with rbenv), Golang (+ godep and glide) on Centos
 - godep
 - glide
 - rpbm-build
+- redis
 - ...
 
 See our [Docker Hub repo](https://hub.docker.com/r/inwork/docker-ruby-golang-centos/)

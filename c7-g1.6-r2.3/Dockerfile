@@ -20,7 +20,7 @@ ENV GLIDE_DOWNLOAD_URL https://github.com/Masterminds/glide/releases/download/v$
 RUN yum install -y epel-release
 RUN yum install -y tar git git-core sqlite sqlite-devel make gcc gcc-c++ patch ruby-devel zlib zlib-devel postgresql-devel \
   cmake openssh-client libxml2-devel libxslt-devel nodejs npm curl rpm-build readline readline-devel \
-  libyaml-devel libffi-devel openssl-devel bzip2 autoconf automake libtool bison wget rubygems
+  libyaml-devel libffi-devel openssl-devel bzip2 autoconf automake libtool bison wget rubygems redis
 
 # install rbenv
 RUN git clone git://github.com/sstephenson/rbenv.git /root/.rbenv
